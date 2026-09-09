@@ -1,0 +1,7 @@
+import './About.css'
+
+function About() {
+  return <section className="section" id="about"><div className="wrap about-grid"><div className="about-portrait"><svg viewBox="0 0 200 200" fill="none" aria-hidden="true"><circle cx="100" cy="78" r="38" stroke="#C9A227" strokeWidth="1.4" /><path d="M40 190c6-42 30-68 60-68s54 26 60 68" stroke="#C9A227" strokeWidth="1.4" fill="none" /><circle cx="100" cy="100" r="94" stroke="#C0713F" strokeWidth="1" opacity="0.35" /></svg></div><div className="about-copy"><h2>Meet Meera Anand</h2><p>Meera has spent over fifteen years guiding clients through numerology and Vastu Shastra, blending the Pythagorean and Vedic numbering systems with traditional Panchabhuta principles of space.</p><p>Her approach is practical rather than prescriptive: she reads your numbers and your rooms, then hands you a small number of changes that are actually livable — never a list of demolitions.</p><ul className="about-creds">{['Trained in Vedic and Pythagorean numerology systems', 'Vastu Shastra practitioner, residential & commercial', '1,200+ consultations since 2011'].map((item) => <li key={item}><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10l4 4 8-8" stroke="currentColor" strokeWidth="1.6" /></svg>{item}</li>)}</ul></div></div></section>
+}
+
+export default About

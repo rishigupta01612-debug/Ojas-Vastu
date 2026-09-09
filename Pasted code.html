@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ojas Numerology &amp; Vastu — Consultations for a Clearer Life</title>
+<meta name="description" content="Personal numerology readings and Vastu consultations. Book a session, explore the meaning of your numbers, and align your home.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0F1329;
+    --bg-alt:#161A38;
+    --bg-card:#1B2047;
+    --bg-card-2:#212657;
+    --line: rgba(201,162,39,0.16);
+    --line-strong: rgba(201,162,39,0.34);
+    --gold:#C9A227;
+    --gold-soft:#E7C765;
+    --copper:#C0713F;
+    --ink:#F4F0E6;
+    --muted:#ABB1D6;
+    --muted-soft:#7C82AA;
+    --success:#79C793;
+    --serif:'Fraunces', Georgia, serif;
+    --sans:'Work Sans', -apple-system, sans-serif;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15;margin:0;}
+  p{margin:0;}
+  ul{list-style:none;margin:0;padding:0;}
+  button, input, select, textarea{font-family:inherit;font-size:inherit;color:inherit;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  .section{padding:112px 0;}
+  .section-tight{padding:80px 0;}
+  @media(max-width:880px){.section{padding:72px 0;} .section-tight{padding:56px 0;}}
+  .bg-alt{background:var(--bg-alt);}
+
+  .section-head{max-width:620px;margin-bottom:52px;}
+  .section-head h2{font-size:clamp(2rem,1.3rem + 2.4vw,2.75rem);margin-bottom:16px;}
+  .section-head p{color:var(--muted);font-size:1.08rem;}
+  @media(max-width:640px){.section-head{margin-bottom:36px;}}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:15px 30px;border-radius:999px;font-weight:600;font-size:0.96rem;
+    cursor:pointer;border:1px solid transparent;text-decoration:none;
+    transition:transform .15s ease, background-color .2s ease, border-color .2s ease, color .2s ease;
+    font-family:var(--sans);
+  }
+  .btn-primary{background:var(--gold);color:#1B1404;}
+  .btn-primary:hover{background:var(--gold-soft);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;border-color:var(--line-strong);color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-soft);}
+  .btn-block{width:100%;}
+  .btn:disabled{opacity:.45;cursor:not-allowed;transform:none;}
+  .btn:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold-soft);outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(15,19,41,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;height:82px;}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .brand-mark{width:36px;height:36px;flex:none;}
+  .brand-text{display:flex;flex-direction:column;line-height:1.1;}
+  .brand-text strong{font-family:var(--serif);font-size:1.3rem;font-weight:600;letter-spacing:.01em;}
+  .brand-text span{font-size:0.72rem;color:var(--muted-soft);}
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{font-size:0.95rem;color:var(--muted);text-decoration:none;position:relative;padding:4px 0;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:-2px;height:1px;width:0;background:var(--gold);
+    transition:width .2s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{display:flex;align-items:center;gap:18px;}
+  .nav-toggle{display:none;background:none;border:1px solid var(--line-strong);border-radius:8px;width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;}
+  .nav-toggle span, .nav-toggle::before, .nav-toggle::after{content:"";display:block;width:18px;height:1.5px;background:var(--ink);position:relative;}
+  .nav-toggle{flex-direction:column;gap:4px;}
+  @media(max-width:880px){
+    .nav-links{
+      position:fixed;top:82px;left:0;right:0;
+      background:var(--bg-alt);border-bottom:1px solid var(--line);
+      flex-direction:column;align-items:flex-start;gap:0;
+      max-height:0;overflow:hidden;transition:max-height .25s ease;
+    }
+    .nav-links.open{max-height:420px;}
+    .nav-links a{width:100%;padding:16px 32px;border-bottom:1px solid var(--line);}
+    .nav-links a::after{display:none;}
+    .nav-cta .btn-primary{display:none;}
+    .nav-toggle{display:flex;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 100px;overflow:hidden;}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;}
+  @media(max-width:980px){.hero .wrap{grid-template-columns:1fr;gap:48px;}}
+  .hero h1{font-size:clamp(2.5rem,1.7rem + 3.2vw,4.1rem);letter-spacing:-0.01em;}
+  .hero-sub{margin-top:20px;font-size:1.15rem;color:var(--muted);max-width:46ch;}
+  .hero-cta{margin-top:34px;display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-trust{margin-top:28px;font-size:0.9rem;color:var(--muted-soft);}
+
+  .calc-box{
+    margin-top:44px;background:var(--bg-card);border:1px solid var(--line);
+    border-radius:18px;padding:26px 28px;max-width:460px;
+  }
+  .calc-box label{display:block;font-size:0.92rem;color:var(--muted);margin-bottom:10px;}
+  .calc-row{display:flex;gap:10px;}
+  .calc-row input{
+    flex:1;background:var(--bg-alt);border:1px solid var(--line-strong);color:var(--ink);
+    border-radius:10px;padding:12px 14px;font-size:0.95rem;
+  }
+  .calc-row button{white-space:nowrap;padding:12px 22px;}
+  .calc-result{margin-top:20px;display:none;align-items:center;gap:18px;}
+  .calc-result.show{display:flex;}
+  .calc-num{
+    font-family:var(--serif);font-size:2.4rem;color:var(--gold-soft);
+    background:var(--bg-alt);border:1px solid var(--line-strong);
+    width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;
+  }
+  .calc-text strong{display:block;font-size:1.02rem;margin-bottom:4px;}
+  .calc-text p{font-size:0.92rem;color:var(--muted);}
+  .calc-text a{font-size:0.86rem;color:var(--gold-soft);text-decoration:underline;text-underline-offset:3px;}
+
+  .hero-art{position:relative;}
+  .mandala-rotate{transform-origin:260px 260px;animation:spin 90s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @media(prefers-reduced-motion:reduce){.mandala-rotate{animation:none;}}
+
+  /* ---------- SERVICES ---------- */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;}
+  @media(max-width:880px){.svc-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:620px){.svc-grid{grid-template-columns:1fr;}}
+  .svc-card{background:var(--bg);padding:36px 32px;}
+  .bg-alt .svc-card{background:var(--bg-alt);}
+  .svc-icon{width:40px;height:40px;color:var(--gold);margin-bottom:20px;}
+  .svc-card h3{font-size:1.2rem;margin-bottom:10px;}
+  .svc-card p{color:var(--muted);font-size:0.95rem;margin-bottom:16px;}
+  .svc-meta{font-size:0.85rem;color:var(--muted-soft);display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px;}
+  .svc-meta strong{color:var(--gold-soft);font-weight:600;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;align-items:center;}
+  @media(max-width:880px){.about-grid{grid-template-columns:1fr;gap:36px;}}
+  .about-portrait{
+    aspect-ratio:1/1;border-radius:24px;
+    background:radial-gradient(circle at 35% 25%, var(--bg-card-2), var(--bg));
+    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+  }
+  .about-portrait svg{width:62%;}
+  .about-copy p{color:var(--muted);margin-bottom:16px;font-size:1.03rem;}
+  .about-copy h2{font-size:clamp(1.9rem,1.4rem + 1.8vw,2.4rem);margin-bottom:18px;}
+  .about-creds{margin-top:26px;display:grid;gap:12px;}
+  .about-creds li{display:flex;gap:12px;font-size:0.95rem;color:var(--muted);align-items:flex-start;}
+  .about-creds svg{width:18px;height:18px;flex:none;margin-top:3px;color:var(--gold);}
+
+  /* ---------- WISDOM: LIFE PATH GRID ---------- */
+  .subhead{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:10px;}
+  .subhead h3{font-size:1.5rem;}
+  .subhead p{color:var(--muted-soft);font-size:0.92rem;}
+  .lp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;}
+  @media(max-width:760px){.lp-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:480px){.lp-grid{grid-template-columns:1fr;}}
+  .lp-card{
+    border:1px solid var(--line);border-radius:16px;padding:22px 20px;
+    background:var(--bg-card);scroll-margin-top:110px;transition:border-color .2s ease;
+  }
+  .lp-card.pulse{border-color:var(--gold);}
+  .lp-top{display:flex;align-items:center;gap:14px;margin-bottom:10px;}
+  .lp-num{font-family:var(--serif);font-size:1.8rem;color:var(--gold-soft);}
+  .lp-card h4{font-size:1.02rem;font-weight:600;}
+  .lp-card p{font-size:0.9rem;color:var(--muted);}
+  .master-note{font-size:0.92rem;color:var(--muted-soft);border-top:1px solid var(--line);padding-top:18px;}
+  .master-note strong{color:var(--muted);}
+
+  /* ---------- VASTU COMPASS ---------- */
+  .compass{
+    display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto auto;gap:14px;
+    grid-template-areas:"air n water" "w space e" "earth s fire";
+    margin-top:8px;
+  }
+  @media(max-width:700px){
+    .compass{grid-template-areas:"air" "water" "space" "earth" "fire";grid-template-columns:1fr;}
+    .compass .dir-label{display:none;}
+  }
+  .el-card{border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--bg-card);}
+  .el-air{grid-area:air;} .el-water{grid-area:water;} .el-earth{grid-area:earth;} .el-fire{grid-area:fire;}
+  .el-space{grid-area:space;background:var(--bg-card-2);border-color:var(--line-strong);text-align:center;}
+  .dir-label{display:flex;align-items:center;justify-content:center;font-size:0.78rem;color:var(--muted-soft);}
+  .dir-n{grid-area:n;} .dir-s{grid-area:s;} .dir-w{grid-area:w;} .dir-e{grid-area:e;}
+  .el-card h4{font-size:1.02rem;margin-bottom:4px;}
+  .el-dir{font-size:0.78rem;color:var(--copper);margin-bottom:8px;}
+  .el-card p{font-size:0.88rem;color:var(--muted);}
+
+  /* ---------- QUOTES ---------- */
+  .quote-block{
+    border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);
+    padding:44px 0;display:flex;align-items:center;gap:28px;
+  }
+  .quote-glyph{font-family:var(--serif);font-size:3.2rem;color:var(--gold);line-height:1;flex:none;}
+  .quote-content{flex:1;min-height:96px;display:flex;flex-direction:column;justify-content:center;}
+  .quote-content p{font-family:var(--serif);font-size:1.5rem;line-height:1.35;}
+  .quote-content span{display:block;margin-top:12px;font-family:var(--sans);font-size:0.9rem;color:var(--muted-soft);}
+  .quote-nav{display:flex;gap:10px;flex:none;}
+  .quote-nav button{
+    width:38px;height:38px;border-radius:50%;border:1px solid var(--line-strong);background:transparent;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);
+  }
+  .quote-nav button:hover{border-color:var(--gold);color:var(--gold-soft);}
+  @media(max-width:640px){.quote-block{flex-direction:column;align-items:flex-start;gap:18px;} .quote-content p{font-size:1.2rem;}}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media(max-width:880px){.testi-grid{grid-template-columns:1fr;}}
+  .testi-card{border-top:2px solid var(--gold);padding-top:20px;}
+  .testi-card p{font-size:1.02rem;color:var(--ink);margin-bottom:16px;}
+  .testi-card span{font-size:0.88rem;color:var(--muted-soft);}
+
+  /* ---------- BOOKING ---------- */
+  .booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+  @media(max-width:900px){.booking-grid{grid-template-columns:1fr;gap:40px;}}
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-size:0.88rem;color:var(--muted);margin-bottom:8px;}
+  .field input, .field select{
+    width:100%;background:var(--bg-card);border:1px solid var(--line-strong);color:var(--ink);
+    border-radius:10px;padding:13px 14px;font-size:0.95rem;
+  }
+  .radio-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .radio-chip{
+    border:1px solid var(--line-strong);border-radius:999px;padding:9px 16px;font-size:0.88rem;
+    cursor:pointer;color:var(--muted);
+  }
+  .radio-chip input{display:none;}
+  .radio-chip.active{border-color:var(--gold);color:var(--gold-soft);background:rgba(201,162,39,0.08);}
+
+  .date-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:10px;margin-bottom:20px;}
+  .date-chip{
+    flex:none;width:66px;padding:12px 0;border-radius:12px;border:1px solid var(--line-strong);
+    text-align:center;cursor:pointer;background:var(--bg-card);
+  }
+  .date-chip .dow{font-size:0.72rem;color:var(--muted-soft);display:block;margin-bottom:4px;}
+  .date-chip .dnum{font-family:var(--serif);font-size:1.3rem;display:block;}
+  .date-chip.active{border-color:var(--gold);background:rgba(201,162,39,0.1);}
+  .date-chip.active .dnum{color:var(--gold-soft);}
+
+  .slot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:26px;}
+  @media(max-width:480px){.slot-grid{grid-template-columns:repeat(2,1fr);}}
+  .slot{
+    border:1px solid var(--line-strong);border-radius:10px;padding:11px 6px;text-align:center;
+    font-size:0.88rem;cursor:pointer;background:var(--bg-card);color:var(--muted);
+  }
+  .slot.active{border-color:var(--gold);color:var(--gold-soft);background:rgba(201,162,39,0.1);}
+  .slot.taken{opacity:0.35;cursor:not-allowed;text-decoration:line-through;}
+
+  .confirm-box{
+    display:none;border:1px solid var(--success);border-radius:16px;padding:26px;
+    background:rgba(121,199,147,0.08);
+  }
+  .confirm-box.show{display:block;}
+  .confirm-box h4{color:var(--success);font-size:1.1rem;margin-bottom:10px;}
+  .confirm-box p{font-size:0.92rem;color:var(--muted);margin-bottom:6px;}
+
+  /* ---------- PAYMENT ---------- */
+  .pay-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+  @media(max-width:900px){.pay-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:540px){.pay-grid{grid-template-columns:repeat(2,1fr);}}
+  .pay-chip{border:1px solid var(--line);border-radius:14px;padding:22px 16px;text-align:center;background:var(--bg-card);}
+  .pay-chip svg{width:26px;height:26px;color:var(--gold);margin:0 auto 12px;}
+  .pay-chip span{font-size:0.85rem;color:var(--muted);display:block;line-height:1.4;}
+  .pay-note{margin-top:28px;font-size:0.88rem;color:var(--muted-soft);border-top:1px solid var(--line);padding-top:20px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:64px 0 32px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+  @media(max-width:700px){.foot-grid{grid-template-columns:1fr;gap:32px;}}
+  .foot-grid h5{font-size:0.85rem;color:var(--muted-soft);margin-bottom:16px;font-weight:600;}
+  .foot-grid ul{display:grid;gap:10px;}
+  .foot-grid a{font-size:0.92rem;color:var(--muted);text-decoration:none;}
+  .foot-grid a:hover{color:var(--gold-soft);}
+  .foot-brand p{color:var(--muted);font-size:0.92rem;margin-top:12px;max-width:34ch;}
+  .social-row{display:flex;gap:12px;margin-top:20px;}
+  .social-row a{
+    width:38px;height:38px;border-radius:50%;border:1px solid var(--line-strong);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .social-row svg{width:16px;height:16px;color:var(--muted);}
+  .social-row a:hover svg{color:var(--gold-soft);}
+  .foot-bottom{border-top:1px solid var(--line);padding-top:24px;font-size:0.8rem;color:var(--muted-soft);}
+
+  /* ---------- CHAT WIDGET ---------- */
+  .chat-fab{
+    position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;
+    background:var(--gold);border:none;cursor:pointer;z-index:80;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,0.35);
+  }
+  .chat-fab svg{width:26px;height:26px;color:#1B1404;}
+  .chat-panel{
+    position:fixed;bottom:96px;right:24px;width:376px;max-width:calc(100vw - 32px);
+    height:520px;max-height:calc(100vh - 140px);
+    background:var(--bg-card);border:1px solid var(--line-strong);border-radius:18px;
+    display:none;flex-direction:column;overflow:hidden;z-index:80;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  }
+  .chat-panel.open{display:flex;}
+  .chat-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+  .chat-head strong{display:block;font-family:var(--serif);font-size:1.05rem;}
+  .chat-head span{font-size:0.78rem;color:var(--muted-soft);}
+  .chat-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.3rem;line-height:1;padding:4px;}
+  .chat-today{flex:none;padding:10px 16px;text-align:center;font-size:0.78rem;color:var(--muted);background:rgba(201,162,39,0.06);border-bottom:1px solid var(--line);cursor:pointer;}
+  .chat-today:hover{color:var(--gold-soft);}
+  .chat-today strong{color:var(--gold-soft);font-weight:600;}
+  .chat-toolkit{flex:none;border-bottom:1px solid var(--line);}
+  .toolkit-toggle{width:100%;background:none;border:none;color:var(--muted);font-size:0.82rem;font-weight:600;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
+  .toolkit-toggle:hover{color:var(--gold-soft);}
+  .toolkit-caret{transition:transform .2s ease;color:var(--gold);}
+  .chat-toolkit.open .toolkit-caret{transform:rotate(180deg);}
+  .toolkit-body{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 16px;}
+  .chat-toolkit.open .toolkit-body{max-height:360px;padding:0 16px 14px;}
+  .field-mini{margin-bottom:10px;}
+  .field-mini label{display:block;font-size:0.76rem;color:var(--muted-soft);margin-bottom:5px;}
+  .field-mini input{width:100%;background:var(--bg-alt);border:1px solid var(--line-strong);color:var(--ink);border-radius:8px;padding:9px 10px;font-size:0.85rem;}
+  .toolkit-calc-btn{width:100%;background:var(--gold);color:#1B1404;border:none;border-radius:999px;padding:10px 0;font-size:0.85rem;font-weight:600;cursor:pointer;transition:background .2s ease;}
+  .toolkit-calc-btn:hover{background:var(--gold-soft);}
+  .mini-num-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;}
+  .mini-num-card{border:1px solid var(--line-strong);border-radius:10px;padding:9px 6px;text-align:center;background:var(--bg-alt);}
+  .mini-num-card.ready{cursor:pointer;}
+  .mini-num-card.ready:hover{border-color:var(--gold);}
+  .mini-num-val{display:block;font-family:var(--serif);font-size:1.15rem;color:var(--gold-soft);}
+  .mini-num-card.placeholder .mini-num-val{color:var(--muted-soft);}
+  .mini-num-label{display:block;font-size:0.68rem;color:var(--muted);margin-top:2px;}
+  .chat-body{flex:1;overflow-y:auto;padding:18px 16px;display:flex;flex-direction:column;gap:12px;}
+  .msg{max-width:82%;padding:10px 14px;border-radius:14px;font-size:0.9rem;line-height:1.5;}
+  .msg.bot{align-self:flex-start;background:var(--bg-alt);border:1px solid var(--line);}
+  .msg.user{align-self:flex-end;background:var(--gold);color:#1B1404;}
+  .msg.typing{display:flex;gap:4px;align-items:center;padding:14px;}
+  .msg.typing span{width:6px;height:6px;border-radius:50%;background:var(--muted-soft);animation:bounce 1.2s infinite ease-in-out;}
+  .msg.typing span:nth-child(2){animation-delay:.15s;} .msg.typing span:nth-child(3){animation-delay:.3s;}
+  @keyframes bounce{0%,60%,100%{transform:translateY(0);opacity:.4;}30%{transform:translateY(-4px);opacity:1;}}
+  @media(prefers-reduced-motion:reduce){.msg.typing span{animation:none;opacity:.7;}}
+  .chat-chips{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 12px;}
+  .chat-chip{border:1px solid var(--line-strong);border-radius:999px;padding:7px 12px;font-size:0.78rem;color:var(--muted);cursor:pointer;background:none;}
+  .chat-chip:hover{border-color:var(--gold);color:var(--gold-soft);}
+  .chat-input-row{border-top:1px solid var(--line);padding:12px;display:flex;gap:8px;}
+  .chat-input-row input{flex:1;background:var(--bg-alt);border:1px solid var(--line-strong);border-radius:10px;padding:11px 13px;color:var(--ink);}
+  .chat-send{width:42px;height:42px;border-radius:10px;background:var(--gold);border:none;flex:none;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+  .chat-send svg{width:18px;height:18px;color:#1B1404;}
+  .chat-disclaimer{font-size:0.72rem;color:var(--muted-soft);padding:0 16px 12px;}
+
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="18" stroke="#C9A227" stroke-width="1.2" opacity="0.6"/>
+        <rect x="10" y="10" width="20" height="20" transform="rotate(45 20 20)" stroke="#C0713F" stroke-width="1.2" opacity="0.5"/>
+        <circle cx="20" cy="20" r="4" fill="#C9A227"/>
+      </svg>
+      <span class="brand-text"><strong>Ojas</strong><span>Numerology &amp; Vastu</span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#wisdom">Numerology &amp; Vastu</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#booking">Book</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#booking" class="btn btn-primary">Book a consultation</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <h1>Align your numbers.<br>Align your space.</h1>
+        <p class="hero-sub">Personal numerology readings and Vastu consultations that bring clarity to your decisions, your relationships, and the rooms you live and work in.</p>
+        <div class="hero-cta">
+          <a href="#booking" class="btn btn-primary">Book a consultation</a>
+          <a href="#wisdom" class="btn btn-ghost">Explore the numbers</a>
+        </div>
+        <p class="hero-trust">Rooted in Vedic and Pythagorean numerology, and traditional Vastu Shastra.</p>
+
+        <div class="calc-box">
+          <label for="dobInput">Find your life path number</label>
+          <div class="calc-row">
+            <input type="date" id="dobInput" aria-label="Your date of birth">
+            <button class="btn btn-primary" id="calcBtn" type="button">Reveal</button>
+          </div>
+          <div class="calc-result" id="calcResult">
+            <div class="calc-num" id="calcNum">—</div>
+            <div class="calc-text">
+              <strong id="calcTitle"></strong>
+              <p id="calcBlurb"></p>
+              <a href="#wisdom" id="calcLink">Read the full meaning</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <line x1="260" y1="20" x2="260" y2="500" stroke="#C9A227" stroke-width="1" opacity="0.12"/>
+          <line x1="20" y1="260" x2="500" y2="260" stroke="#C9A227" stroke-width="1" opacity="0.12"/>
+          <g class="mandala-rotate">
+            <circle cx="260" cy="260" r="240" stroke="#C9A227" stroke-width="1" fill="none" opacity="0.22"/>
+            <circle cx="260" cy="260" r="190" stroke="#C9A227" stroke-width="1" fill="none" opacity="0.3"/>
+            <rect x="110" y="110" width="300" height="300" transform="rotate(45 260 260)" stroke="#C0713F" stroke-width="1" fill="none" opacity="0.28"/>
+            <g font-family="Fraunces, serif" font-size="20" fill="#E7C765" text-anchor="middle">
+              <circle cx="260" cy="110" r="17" fill="#0F1329" stroke="#C9A227" stroke-width="1" opacity="0.8"/>
+              <text x="260" y="117">1</text>
+              <circle cx="356" cy="145" r="17" fill="#0F1329" stroke="#C9A227" stroke-width="1" opacity="0.8"/>
+              <text x="356" y="152">2</text>
+              <circle cx="408" cy="234" r="17" fill="#0F1329" stroke="#C9A227" stroke-width="1" opacity="0.8"/>
+              <text x="408" y="241">3</text>
+              <circle cx="390" cy="335" r="17" fill="#0F1329" stroke="#C9A227" stroke-width="1" opacity="0.8"/>
+              <text x="390" y="342">4</text>
+              <circle cx="311" cy="401" r="17" fill="#0F1329" stroke="#C9A227" stroke-width="1" opacity="0.8"/>
+              <text x="311" y="408">5</text>
+              <circle cx="209" cy="401" r="17" fill="#0F1329" stroke="#C9A227" stroke-width="1" opacity="0.8"/>
+              <text x="209" y="408">6</text>
+              <circle cx="130" cy="335" r="17" fill="#0F1329" stroke="#C9A227" stroke-width="1" opacity="0.8"/>
+              <text x="130" y="342">7</text>
+              <circle cx="112" cy="234" r="17" fill="#0F1329" stroke="#C9A227" stroke-width="1" opacity="0.8"/>
+              <text x="112" y="241">8</text>
+              <circle cx="164" cy="145" r="17" fill="#0F1329" stroke="#C9A227" stroke-width="1" opacity="0.8"/>
+              <text x="164" y="152">9</text>
+            </g>
+          </g>
+          <circle cx="260" cy="260" r="90" stroke="#E7C765" stroke-width="1" fill="none" opacity="0.45"/>
+          <circle cx="260" cy="260" r="6" fill="#C9A227"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="section bg-alt" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Consultations</h2>
+        <p>Every session is tailored to what you're navigating right now — a decision, a space, a relationship, or a fresh start.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card">
+          <svg class="svc-icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.3"/><path d="M20 12v16M12 20h16" stroke="currentColor" stroke-width="1.3"/></svg>
+          <h3>Numerology reading</h3>
+          <p>A full chart analysis covering your life path, expression, and soul urge numbers, with guidance on career, relationships, and timing.</p>
+          <div class="svc-meta"><span>60 min</span><strong>From ₹2,500</strong></div>
+        </div>
+        <div class="svc-card">
+          <svg class="svc-icon" viewBox="0 0 40 40" fill="none"><path d="M8 34V16l12-9 12 9v18" stroke="currentColor" stroke-width="1.3" fill="none"/><path d="M16 34V22h8v12" stroke="currentColor" stroke-width="1.3"/></svg>
+          <h3>Vastu consultation — home</h3>
+          <p>An on-site or remote review of your floor plan with practical, non-invasive corrections for wellbeing and flow.</p>
+          <div class="svc-meta"><span>Report incl.</span><strong>From ₹5,000</strong></div>
+        </div>
+        <div class="svc-card">
+          <svg class="svc-icon" viewBox="0 0 40 40" fill="none"><rect x="7" y="10" width="26" height="22" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M13 16h6M13 22h14M13 27h10" stroke="currentColor" stroke-width="1.3"/></svg>
+          <h3>Vastu consultation — office</h3>
+          <p>A workplace energy audit focused on productivity, growth, and easing friction in shared spaces.</p>
+          <div class="svc-meta"><span>90 min</span><strong>From ₹6,000</strong></div>
+        </div>
+        <div class="svc-card">
+          <svg class="svc-icon" viewBox="0 0 40 40" fill="none"><path d="M20 6v6M20 28v6M6 20h6M28 20h6" stroke="currentColor" stroke-width="1.3"/><circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="1.3"/></svg>
+          <h3>Name &amp; birth-date correction</h3>
+          <p>Numerology-aligned name suggestions for newborns, personal rebranding, or a new business name.</p>
+          <div class="svc-meta"><span>45 min</span><strong>From ₹1,800</strong></div>
+        </div>
+        <div class="svc-card">
+          <svg class="svc-icon" viewBox="0 0 40 40" fill="none"><circle cx="15" cy="20" r="9" stroke="currentColor" stroke-width="1.3"/><circle cx="25" cy="20" r="9" stroke="currentColor" stroke-width="1.3"/></svg>
+          <h3>Compatibility reading</h3>
+          <p>A numerology comparison for partnerships, marriage, or business collaboration — where you align and where to be mindful.</p>
+          <div class="svc-meta"><span>60 min</span><strong>From ₹2,000</strong></div>
+        </div>
+        <div class="svc-card">
+          <svg class="svc-icon" viewBox="0 0 40 40" fill="none"><path d="M8 30L16 18L23 24L32 10" stroke="currentColor" stroke-width="1.3" fill="none"/><path d="M32 16V10H26" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
+          <h3>Annual forecast</h3>
+          <p>A personal-year roadmap covering themes, opportunities, and cautions for the twelve months ahead.</p>
+          <div class="svc-meta"><span>45 min</span><strong>From ₹1,500</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="section" id="about">
+    <div class="wrap about-grid">
+      <div class="about-portrait">
+        <svg viewBox="0 0 200 200" fill="none">
+          <circle cx="100" cy="78" r="38" stroke="#C9A227" stroke-width="1.4"/>
+          <path d="M40 190c6-42 30-68 60-68s54 26 60 68" stroke="#C9A227" stroke-width="1.4" fill="none"/>
+          <circle cx="100" cy="100" r="94" stroke="#C0713F" stroke-width="1" opacity="0.35"/>
+        </svg>
+      </div>
+      <div class="about-copy">
+        <h2>Meet Meera Anand</h2>
+        <p>Meera has spent over fifteen years guiding clients through numerology and Vastu Shastra, blending the Pythagorean and Vedic numbering systems with traditional Panchabhuta principles of space.</p>
+        <p>Her approach is practical rather than prescriptive: she reads your numbers and your rooms, then hands you a small number of changes that are actually livable — never a list of demolitions.</p>
+        <ul class="about-creds">
+          <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.6"/></svg> Trained in Vedic and Pythagorean numerology systems</li>
+          <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.6"/></svg> Vastu Shastra practitioner, residential &amp; commercial</li>
+          <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.6"/></svg> 1,200+ consultations since 2011</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WISDOM ================= -->
+  <section class="section bg-alt" id="wisdom">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Numerology &amp; Vastu, briefly explained</h2>
+        <p>Two ancient systems for reading the world — one through numbers, the other through space.</p>
+      </div>
+
+      <div class="subhead"><h3>The nine life path numbers</h3><p>Calculated from your date of birth</p></div>
+      <div class="lp-grid" id="lpGrid">
+        <div class="lp-card" id="lp-1"><div class="lp-top"><span class="lp-num">1</span><h4>The Leader</h4></div><p>Independent and driven, a natural pioneer who leads by example and prefers to chart their own course.</p></div>
+        <div class="lp-card" id="lp-2"><div class="lp-top"><span class="lp-num">2</span><h4>The Peacemaker</h4></div><p>Intuitive and cooperative, gifted at reading a room and building bridges between people.</p></div>
+        <div class="lp-card" id="lp-3"><div class="lp-top"><span class="lp-num">3</span><h4>The Creator</h4></div><p>Expressive and warm, drawn to art, words, and conversation — happiest when sharing ideas out loud.</p></div>
+        <div class="lp-card" id="lp-4"><div class="lp-top"><span class="lp-num">4</span><h4>The Builder</h4></div><p>Grounded and methodical, turning big ideas into lasting structure through steady, patient work.</p></div>
+        <div class="lp-card" id="lp-5"><div class="lp-top"><span class="lp-num">5</span><h4>The Free Spirit</h4></div><p>Curious and adaptable, thriving on change, travel, and new experience over routine.</p></div>
+        <div class="lp-card" id="lp-6"><div class="lp-top"><span class="lp-num">6</span><h4>The Nurturer</h4></div><p>Responsible and caring, often the anchor for family, friends, and community.</p></div>
+        <div class="lp-card" id="lp-7"><div class="lp-top"><span class="lp-num">7</span><h4>The Seeker</h4></div><p>Reflective and analytical, more interested in the truth beneath the surface than the surface itself.</p></div>
+        <div class="lp-card" id="lp-8"><div class="lp-top"><span class="lp-num">8</span><h4>The Achiever</h4></div><p>Ambitious and capable, comfortable turning a vision into material, measurable success.</p></div>
+        <div class="lp-card" id="lp-9"><div class="lp-top"><span class="lp-num">9</span><h4>The Humanitarian</h4></div><p>Compassionate and wise, here to give back what's been learned across a lifetime.</p></div>
+      </div>
+      <p class="master-note" id="lp-master"><strong>Master numbers 11, 22 &amp; 33</strong> — occasionally a birth date reduces to one of these instead. 11 is the Intuitive, 22 the Master Builder, and 33 the Master Teacher: heightened versions of 2, 4, and 6, carrying more responsibility and more potential.</p>
+    </div>
+  </section>
+
+  <!-- ================= VASTU COMPASS ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="subhead"><h3>The five elements of Vastu</h3><p>Panchabhuta &amp; their directions</p></div>
+      <div class="compass">
+        <div class="dir-label dir-n">North</div>
+        <div class="dir-label dir-w">West</div>
+        <div class="dir-label dir-e">East</div>
+        <div class="dir-label dir-s">South</div>
+        <div class="el-card el-air"><h4>Air · Vayu</h4><div class="el-dir">Northwest</div><p>Movement and fresh energy. Good for living rooms, guest rooms, and anywhere that needs ventilation.</p></div>
+        <div class="el-card el-water"><h4>Water · Jal</h4><div class="el-dir">Northeast</div><p>Flow and prosperity. The traditional spot for a water feature or a quiet meditation corner.</p></div>
+        <div class="el-card el-space"><h4>Space · Akash</h4><div class="el-dir">Center · Brahmasthan</div><p>Openness and connection. Keep this area light and uncluttered.</p></div>
+        <div class="el-card el-earth"><h4>Earth · Prithvi</h4><div class="el-dir">Southwest</div><p>Stability and grounding. Best for the master bedroom and heavier furniture.</p></div>
+        <div class="el-card el-fire"><h4>Fire · Agni</h4><div class="el-dir">Southeast</div><p>Energy and transformation. The classic placement for the kitchen.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= QUOTES ================= -->
+  <section class="section-tight bg-alt">
+    <div class="wrap">
+      <div class="quote-block">
+        <span class="quote-glyph" aria-hidden="true">"</span>
+        <div class="quote-content" id="quoteContent">
+          <p id="quoteText">Number rules the universe.</p>
+          <span id="quoteAuthor">— Pythagoras</span>
+        </div>
+        <div class="quote-nav">
+          <button id="quotePrev" aria-label="Previous quote">‹</button>
+          <button id="quoteNext" aria-label="Next quote">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="section" id="reviews">
+    <div class="wrap">
+      <div class="section-head"><h2>What clients say</h2></div>
+      <div class="testi-grid">
+        <div class="testi-card"><p>My Vastu consultation changed how our living room felt — same furniture, better flow, calmer evenings.</p><span>Priya M.</span></div>
+        <div class="testi-card"><p>The numerology session gave me language for patterns I'd noticed in my own career for years.</p><span>Devansh K.</span></div>
+        <div class="testi-card"><p>We used the name-correction service for our daughter. A small change, and it felt right immediately.</p><span>Ritu S.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BOOKING ================= -->
+  <section class="section bg-alt" id="booking">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Book a consultation</h2>
+        <p>Pick a service, a time that works, and send your details. We'll confirm by email within one business day.</p>
+      </div>
+
+      <div class="booking-grid">
+        <div>
+          <form id="bookingForm">
+            <div class="field"><label for="bName">Full name</label><input type="text" id="bName" required></div>
+            <div class="field"><label for="bEmail">Email</label><input type="email" id="bEmail" required></div>
+            <div class="field"><label for="bPhone">Phone</label><input type="tel" id="bPhone"></div>
+            <div class="field">
+              <label for="bService">Service</label>
+              <select id="bService">
+                <option>Numerology reading — ₹2,500</option>
+                <option>Vastu consultation (home) — ₹5,000</option>
+                <option>Vastu consultation (office) — ₹6,000</option>
+                <option>Name &amp; birth-date correction — ₹1,800</option>
+                <option>Compatibility reading — ₹2,000</option>
+                <option>Annual forecast — ₹1,500</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Mode</label>
+              <div class="radio-row" id="modeRow">
+                <label class="radio-chip active"><input type="radio" name="mode" value="Video call" checked>Video call</label>
+                <label class="radio-chip"><input type="radio" name="mode" value="In person">In person</label>
+                <label class="radio-chip"><input type="radio" name="mode" value="Phone">Phone</label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="bookSubmit" disabled>Request appointment</button>
+          </form>
+        </div>
+
+        <div>
+          <label style="display:block;font-size:0.88rem;color:var(--muted);margin-bottom:10px;">Choose a date</label>
+          <div class="date-scroll" id="dateScroll"></div>
+          <label style="display:block;font-size:0.88rem;color:var(--muted);margin-bottom:10px;">Choose a time</label>
+          <div class="slot-grid" id="slotGrid"></div>
+
+          <div class="confirm-box" id="confirmBox">
+            <h4>Request received</h4>
+            <p id="confirmSummary"></p>
+            <p>We'll confirm your appointment by email and share a secure payment link shortly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PAYMENT ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Payment options</h2>
+        <p>Once your appointment is confirmed, you can complete payment using any of the following.</p>
+      </div>
+      <div class="pay-grid">
+        <div class="pay-chip"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M2 10h20" stroke="currentColor" stroke-width="1.4"/></svg><span>Credit / debit card</span></div>
+        <div class="pay-chip"><svg viewBox="0 0 24 24" fill="none"><rect x="6" y="2" width="12" height="20" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M10 18h4" stroke="currentColor" stroke-width="1.4"/></svg><span>UPI — GPay, PhonePe, Paytm</span></div>
+        <div class="pay-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M3 10l9-6 9 6" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M5 10v9M11 10v9M19 10v9M3 19h18" stroke="currentColor" stroke-width="1.4"/></svg><span>Net banking</span></div>
+        <div class="pay-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M7 8h10M7 8l3-4M17 8l-3-4M17 16H7M17 16l-3 4M7 16l3 4" stroke="currentColor" stroke-width="1.4"/></svg><span>Bank transfer — NEFT / IMPS</span></div>
+        <div class="pay-chip"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.4"/></svg><span>Cash — in person only</span></div>
+      </div>
+      <p class="pay-note">Payments are collected securely after your appointment is confirmed. This page is a design template — connect a gateway such as Razorpay, Stripe, or PayU to accept real payments.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand" style="pointer-events:none;">
+          <svg class="brand-mark" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="#C9A227" stroke-width="1.2" opacity="0.6"/><rect x="10" y="10" width="20" height="20" transform="rotate(45 20 20)" stroke="#C0713F" stroke-width="1.2" opacity="0.5"/><circle cx="20" cy="20" r="4" fill="#C9A227"/></svg>
+          <span class="brand-text"><strong>Ojas</strong><span>Numerology &amp; Vastu</span></span>
+        </div>
+        <p>Consultations that bring clarity to your decisions and calm to your home.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none"><path d="M14 21v-8h3l1-4h-4V7c0-1.1.9-2 2-2h2V1h-3a5 5 0 00-5 5v3H7v4h3v8h4z" stroke="currentColor" stroke-width="1"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M8 15c1 1 2 1.5 4 1.5s3.5-1 4-2" stroke="currentColor" stroke-width="1.4"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:rishigupta0770@gmail.com">rishigupta0770@gmail.com</a></li>
+          <li><a href="tel:+91 8652588516">+91 8652588516</a></li>
+          <li><a href="#">Mumbai, India</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#wisdom">Numerology &amp; Vastu</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#booking">Book a consultation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      © 2026 Ojas Numerology &amp; Vastu. Demo template built for illustration — replace the name, photo, and contact details with your own before publishing.
+    </div>
+  </div>
+</footer>
+
+<!-- ================= CHAT WIDGET ================= -->
+<button class="chat-fab" id="chatFab" aria-label="Open chat" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H8l-4 4V4z" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+</button>
+<div class="chat-panel" id="chatPanel" role="dialog" aria-label="Chat with the numerology guide">
+  <div class="chat-head">
+    <div><strong>Ask Ojas</strong><span>A quick numerology &amp; Vastu guide</span></div>
+    <button class="chat-close" id="chatClose" aria-label="Close chat">×</button>
+  </div>
+  <div class="chat-today" id="chatToday" role="button" tabindex="0">Today's Universal Day Number: <strong id="todayNumVal">—</strong></div>
+  <div class="chat-toolkit" id="chatToolkit">
+    <button class="toolkit-toggle" id="toolkitToggle" type="button" aria-expanded="false">
+      <span>Calculate your numbers</span><span class="toolkit-caret">▾</span>
+    </button>
+    <div class="toolkit-body" id="toolkitBody">
+      <div class="field-mini"><label for="chatFullName">Full name</label><input type="text" id="chatFullName" placeholder="As on your birth certificate"></div>
+      <div class="field-mini"><label for="chatDob">Date of birth</label><input type="date" id="chatDob"></div>
+      <button class="toolkit-calc-btn" id="chatCalcBtn" type="button">Calculate</button>
+      <div class="mini-num-grid" id="miniNumGrid">
+        <div class="mini-num-card placeholder" data-key="lifePath"><span class="mini-num-val">—</span><span class="mini-num-label">Life Path</span></div>
+        <div class="mini-num-card placeholder" data-key="expression"><span class="mini-num-val">—</span><span class="mini-num-label">Expression</span></div>
+        <div class="mini-num-card placeholder" data-key="soulUrge"><span class="mini-num-val">—</span><span class="mini-num-label">Soul Urge</span></div>
+        <div class="mini-num-card placeholder" data-key="personality"><span class="mini-num-val">—</span><span class="mini-num-label">Personality</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="msg bot">Hi! I'm the AI guide for Ojas Numerology &amp; Vastu. Tap "Calculate your numbers" above to find your Life Path, Expression, Soul Urge, and Personality numbers — or just ask me anything about numerology, Vastu, or booking a session.</div>
+  </div>
+  <div class="chat-chips" id="chatChips">
+    <button class="chat-chip" type="button">What's my life path number?</button>
+    <button class="chat-chip" type="button">Vastu tips for my kitchen</button>
+    <button class="chat-chip" type="button">How do I book a session?</button>
+  </div>
+  <form class="chat-input-row" id="chatForm">
+    <input type="text" id="chatInput" placeholder="Type a question…" autocomplete="off">
+    <button class="chat-send" type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20l16-8L4 4v6l10 2-10 2v6z" fill="currentColor"/></svg></button>
+  </form>
+  <p class="chat-disclaimer">AI guidance for general orientation — may search the web for current info. Not a substitute for your personal consultation.</p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ---------- NAV ---------- */
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', function () {
+    var open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { navLinks.classList.remove('open'); });
+  });
+
+  /* ---------- LIFE PATH CALCULATOR ---------- */
+  var LP_DATA = {
+    1: ['The Leader', "Independent and driven, a natural pioneer who leads by example."],
+    2: ['The Peacemaker', "Intuitive and cooperative, gifted at building bridges between people."],
+    3: ['The Creator', "Expressive and warm, drawn to art, words, and conversation."],
+    4: ['The Builder', "Grounded and methodical, turning big ideas into lasting structure."],
+    5: ['The Free Spirit', "Curious and adaptable, thriving on change and new experience."],
+    6: ['The Nurturer', "Responsible and caring, often the anchor for family and community."],
+    7: ['The Seeker', "Reflective and analytical, drawn to the truth beneath the surface."],
+    8: ['The Achiever', "Ambitious and capable, comfortable turning vision into material success."],
+    9: ['The Humanitarian', "Compassionate and wise, here to give back what's been learned."],
+    11: ['The Intuitive (Master Number)', "Idealistic and perceptive, a heightened, more responsible version of 2."],
+    22: ['The Master Builder (Master Number)', "Practical vision on a grand scale, a heightened version of 4."],
+    33: ['The Master Teacher (Master Number)', "Selfless devotion to healing and guiding others, a heightened version of 6."]
+  };
+
+  function reduceNum(n) {
+    while (n > 9 && n !== 11 && n !== 22 && n !== 33) {
+      n = String(n).split('').reduce(function (a, d) { return a + Number(d); }, 0);
+    }
+    return n;
+  }
+  function lifePathFromDate(dateStr) {
+    var parts = dateStr.split('-').map(Number);
+    var y = parts[0], m = parts[1], d = parts[2];
+    var total = reduceNum(m) + reduceNum(d) + reduceNum(y);
+    return reduceNum(total);
+  }
+
+  var dobInput = document.getElementById('dobInput');
+  var calcBtn = document.getElementById('calcBtn');
+  var calcResult = document.getElementById('calcResult');
+  var calcNum = document.getElementById('calcNum');
+  var calcTitle = document.getElementById('calcTitle');
+  var calcBlurb = document.getElementById('calcBlurb');
+  var calcLink = document.getElementById('calcLink');
+
+  calcBtn.addEventListener('click', function () {
+    if (!dobInput.value) { dobInput.focus(); return; }
+    var num = lifePathFromDate(dobInput.value);
+    var data = LP_DATA[num] || LP_DATA[reduceNum(num)];
+    calcNum.textContent = num;
+    calcTitle.textContent = data[0];
+    calcBlurb.textContent = data[1];
+    var anchorId = (num === 11 || num === 22 || num === 33) ? 'lp-master' : ('lp-' + num);
+    calcLink.setAttribute('href', '#' + anchorId);
+    calcResult.classList.add('show');
+
+    document.querySelectorAll('.lp-card').forEach(function (c) { c.classList.remove('pulse'); });
+    var target = document.getElementById(anchorId);
+    if (target && target.classList.contains('lp-card')) { target.classList.add('pulse'); }
+  });
+
+  /* ---------- QUOTE ROTATOR ---------- */
+  var QUOTES = [
+    ["Number rules the universe.", "— Pythagoras"],
+    ["Number is the measure of all things.", "— Plato"],
+    ["God built the universe on numbers.", "— Pythagoras"],
+    ["Everything is numbers — to know numbers is to know thyself.", "— Pythagoras"],
+    ["Numerology is the bridge between who you are and who you can become.", "— Unknown"]
+  ];
+  var qIndex = 0;
+  var quoteText = document.getElementById('quoteText');
+  var quoteAuthor = document.getElementById('quoteAuthor');
+  function showQuote(i) {
+    qIndex = (i + QUOTES.length) % QUOTES.length;
+    quoteText.textContent = QUOTES[qIndex][0];
+    quoteAuthor.textContent = QUOTES[qIndex][1];
+  }
+  document.getElementById('quotePrev').addEventListener('click', function () { showQuote(qIndex - 1); });
+  document.getElementById('quoteNext').addEventListener('click', function () { showQuote(qIndex + 1); });
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion) { setInterval(function () { showQuote(qIndex + 1); }, 7000); }
+
+  /* ---------- BOOKING: MODE CHIPS ---------- */
+  document.querySelectorAll('#modeRow .radio-chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      document.querySelectorAll('#modeRow .radio-chip').forEach(function (c) { c.classList.remove('active'); });
+      chip.classList.add('active');
+    });
+  });
+
+  /* ---------- BOOKING: DATES & SLOTS ---------- */
+  var dateScroll = document.getElementById('dateScroll');
+  var slotGrid = document.getElementById('slotGrid');
+  var bookSubmit = document.getElementById('bookSubmit');
+  var ALL_SLOTS = ['10:00 AM', '11:30 AM', '1:00 PM', '3:00 PM', '4:30 PM', '6:00 PM'];
+  var dowNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var selectedDate = null, selectedSlot = null;
+  var dates = [];
+
+  var cursor = new Date();
+  cursor.setDate(cursor.getDate() + 1);
+  while (dates.length < 12) {
+    if (cursor.getDay() !== 0) { dates.push(new Date(cursor)); }
+    cursor.setDate(cursor.getDate() + 1);
+  }
+
+  dates.forEach(function (dt, idx) {
+    var chip = document.createElement('div');
+    chip.className = 'date-chip';
+    chip.innerHTML = '<span class="dow">' + dowNames[dt.getDay()] + '</span><span class="dnum">' + dt.getDate() + '</span>';
+    chip.addEventListener('click', function () {
+      document.querySelectorAll('.date-chip').forEach(function (c) { c.classList.remove('active'); });
+      chip.classList.add('active');
+      selectedDate = dt;
+      selectedSlot = null;
+      renderSlots(idx);
+      updateSubmitState();
+    });
+    dateScroll.appendChild(chip);
+    if (idx === 0) { chip.click(); }
+  });
+
+  function renderSlots(dateIdx) {
+    slotGrid.innerHTML = '';
+    ALL_SLOTS.forEach(function (time, i) {
+      var taken = (dateIdx + i) % 5 === 0;
+      var el = document.createElement('div');
+      el.className = 'slot' + (taken ? ' taken' : '');
+      el.textContent = taken ? time + ' · booked' : time;
+      if (!taken) {
+        el.addEventListener('click', function () {
+          slotGrid.querySelectorAll('.slot').forEach(function (s) { s.classList.remove('active'); });
+          el.classList.add('active');
+          selectedSlot = time;
+          updateSubmitState();
+        });
+      }
+      slotGrid.appendChild(el);
+    });
+  }
+
+  var bName = document.getElementById('bName');
+  var bEmail = document.getElementById('bEmail');
+  function updateSubmitState() {
+    bookSubmit.disabled = !(selectedDate && selectedSlot && bName.value.trim() && bEmail.value.trim());
+  }
+  bName.addEventListener('input', updateSubmitState);
+  bEmail.addEventListener('input', updateSubmitState);
+
+  document.getElementById('bookingForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (bookSubmit.disabled) return;
+    var mode = document.querySelector('#modeRow input:checked').value;
+    var service = document.getElementById('bService').value;
+    var dateLabel = dowNames[selectedDate.getDay()] + ', ' + selectedDate.getDate() + ' ' + monthNames[selectedDate.getMonth()];
+    document.getElementById('confirmSummary').textContent =
+      bName.value.trim() + ' · ' + service + ' · ' + dateLabel + ' at ' + selectedSlot + ' · ' + mode;
+    document.getElementById('confirmBox').classList.add('show');
+    document.getElementById('confirmBox').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+  });
+
+  /* ---------- CHAT WIDGET ---------- */
+  var chatFab = document.getElementById('chatFab');
+  var chatPanel = document.getElementById('chatPanel');
+  var chatClose = document.getElementById('chatClose');
+  var chatBody = document.getElementById('chatBody');
+  var chatForm = document.getElementById('chatForm');
+  var chatInput = document.getElementById('chatInput');
+  var chatChips = document.getElementById('chatChips');
+
+  /* ---------- TODAY'S NUMEROLOGY (live date, computed client-side) ---------- */
+  var MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var todayDate = new Date();
+  var todayLabel = MONTH_NAMES[todayDate.getMonth()] + ' ' + todayDate.getDate() + ', ' + todayDate.getFullYear();
+  function universalDayNumber(d) {
+    var digits = ('' + d.getDate() + (d.getMonth() + 1) + d.getFullYear()).split('').map(Number);
+    var sum = digits.reduce(function (a, b) { return a + b; }, 0);
+    while (sum > 9) { sum = String(sum).split('').reduce(function (a, x) { return a + Number(x); }, 0); }
+    return sum;
+  }
+  var todayUDN = universalDayNumber(todayDate);
+  var todayNumVal = document.getElementById('todayNumVal');
+  var chatToday = document.getElementById('chatToday');
+  todayNumVal.textContent = todayUDN;
+  function askAboutToday() {
+    sendToClaude("What does today's Universal Day Number " + todayUDN + " mean, and is there anything current in numerology I should know about today?");
+  }
+  chatToday.addEventListener('click', askAboutToday);
+  chatToday.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); askAboutToday(); } });
+
+  /* ---------- CHAT NUMEROLOGY TOOLKIT ---------- */
+  var chatToolkit = document.getElementById('chatToolkit');
+  var toolkitToggle = document.getElementById('toolkitToggle');
+  var chatFullName = document.getElementById('chatFullName');
+  var chatDob = document.getElementById('chatDob');
+  var chatCalcBtn = document.getElementById('chatCalcBtn');
+  var miniNumGrid = document.getElementById('miniNumGrid');
+
+  var VOWELS = 'AEIOU';
+  function nameNumbers(fullName) {
+    var letters = fullName.toUpperCase().replace(/[^A-Z]/g, '').split('');
+    var total = 0, vowelSum = 0, consSum = 0;
+    letters.forEach(function (ch) {
+      var idx = ch.charCodeAt(0) - 65;
+      var val = (idx % 9) + 1;
+      total += val;
+      if (VOWELS.indexOf(ch) >= 0) { vowelSum += val; } else { consSum += val; }
+    });
+    return {
+      expression: letters.length ? reduceNum(total) : null,
+      soulUrge: letters.length ? reduceNum(vowelSum) : null,
+      personality: letters.length ? reduceNum(consSum) : null
+    };
+  }
+
+  var calculated = { lifePath: null, expression: null, soulUrge: null, personality: null };
+  var NUM_LABELS = { lifePath: 'Life Path Number', expression: 'Expression Number', soulUrge: 'Soul Urge Number', personality: 'Personality Number' };
+
+  toolkitToggle.addEventListener('click', function () {
+    var open = chatToolkit.classList.toggle('open');
+    toolkitToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  chatCalcBtn.addEventListener('click', function () {
+    if (chatDob.value) { calculated.lifePath = lifePathFromDate(chatDob.value); }
+    if (chatFullName.value.trim()) {
+      var nn = nameNumbers(chatFullName.value.trim());
+      calculated.expression = nn.expression;
+      calculated.soulUrge = nn.soulUrge;
+      calculated.personality = nn.personality;
+    }
+    miniNumGrid.querySelectorAll('.mini-num-card').forEach(function (card) {
+      var key = card.getAttribute('data-key');
+      var val = calculated[key];
+      if (val !== null && val !== undefined) {
+        card.querySelector('.mini-num-val').textContent = val;
+        card.classList.remove('placeholder');
+        card.classList.add('ready');
+      }
+    });
+    if (!chatDob.value) { chatDob.focus(); }
+  });
+
+  miniNumGrid.addEventListener('click', function (e) {
+    var card = e.target.closest('.mini-num-card');
+    if (!card || !card.classList.contains('ready')) return;
+    var key = card.getAttribute('data-key');
+    chatChips.style.display = 'none';
+    sendToClaude('What does my ' + NUM_LABELS[key] + ' ' + calculated[key] + ' mean?');
+  });
+
+  var SYSTEM_PROMPT = "You are the friendly AI guide for Ojas Numerology & Vastu, a numerology and Vastu Shastra consultation studio. Answer questions about numerology (life path, expression, soul urge, and personality numbers, name numerology, compatibility) and Vastu (the five elements, directions, room placement) warmly and concisely, in 2 to 4 sentences. You can also explain the studio's six services and roughly how to book using the page's booking section. Do not give medical, legal, or financial advice. Frame numerology and Vastu as reflective, symbolic tools rather than certainties, and avoid definitive predictions. If asked something unrelated to numerology, Vastu, or this studio, gently steer back. You have a live web search tool: use it when a question genuinely needs current information from the internet (recent numerology articles or trends, today's broader context, or anything time-sensitive); for general numerology or Vastu concepts, answer directly from what you already know without searching.";
+  var chatHistory = [];
+
+  function buildSystemPrompt() {
+    var parts = [];
+    if (calculated.lifePath) parts.push('Life Path ' + calculated.lifePath);
+    if (calculated.expression) parts.push('Expression ' + calculated.expression);
+    if (calculated.soulUrge) parts.push('Soul Urge ' + calculated.soulUrge);
+    if (calculated.personality) parts.push('Personality ' + calculated.personality);
+    var prompt = SYSTEM_PROMPT + " Today is " + todayLabel + ", and today's Universal Day Number is " + todayUDN + ".";
+    if (parts.length) {
+      prompt += ' The visitor has calculated these numbers on this page: ' + parts.join(', ') + '. Refer to them naturally if relevant.';
+    }
+    return prompt;
+  }
+
+  function toggleChat(open) {
+    chatPanel.classList.toggle('open', open);
+    chatFab.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) { chatInput.focus(); }
+  }
+  chatFab.addEventListener('click', function () { toggleChat(!chatPanel.classList.contains('open')); });
+  chatClose.addEventListener('click', function () { toggleChat(false); });
+
+  function addMessage(role, text) {
+    var div = document.createElement('div');
+    div.className = 'msg ' + (role === 'user' ? 'user' : 'bot');
+    div.textContent = text;
+    chatBody.appendChild(div);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    return div;
+  }
+  function addTyping() {
+    var div = document.createElement('div');
+    div.className = 'msg bot typing';
+    div.innerHTML = '<span></span><span></span><span></span>';
+    chatBody.appendChild(div);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    return div;
+  }
+
+  async function sendToClaude(userText) {
+    addMessage('user', userText);
+    chatHistory.push({ role: 'user', content: userText });
+    var typingEl = addTyping();
+    chatInput.disabled = true;
+
+    try {
+      var response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 600,
+          system: buildSystemPrompt(),
+          messages: chatHistory,
+          tools: [{ type: 'web_search_20250305', name: 'web_search' }]
+        })
+      });
+      var data = await response.json();
+      var reply = '';
+      if (data && data.content) {
+        reply = data.content.map(function (block) { return block.text || ''; }).join('').trim();
+      }
+      if (!reply) { reply = "I'm not sure how to answer that one — could you rephrase, or ask me about numerology, Vastu, or booking a session?"; }
+      typingEl.remove();
+      addMessage('bot', reply);
+      chatHistory.push({ role: 'assistant', content: reply });
+    } catch (err) {
+      typingEl.remove();
+      addMessage('bot', "I'm having trouble connecting right now. Please try again in a moment, or book a session directly using the form below.");
+    } finally {
+      chatInput.disabled = false;
+      chatInput.focus();
+    }
+  }
+
+  chatForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var text = chatInput.value.trim();
+    if (!text) return;
+    chatInput.value = '';
+    chatChips.style.display = 'none';
+    sendToClaude(text);
+  });
+  chatChips.querySelectorAll('.chat-chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      chatChips.style.display = 'none';
+      sendToClaude(chip.textContent);
+    });
+  });
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "ojas-numerology-vastu-server",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "test": "node --test",
+    "lint": "eslint src test"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.15.1",
+    "nodemailer": "^10.0.1",
+    "razorpay": "^2.9.6",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "supertest": "^7.1.1"
+  }
+}
