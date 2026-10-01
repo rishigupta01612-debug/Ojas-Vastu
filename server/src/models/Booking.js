@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const bookingSchema = new mongoose.Schema({
   name: { type: String, required: true, trim: true, maxlength: 100 },
   email: { type: String, required: true, lowercase: true, trim: true, maxlength: 254 },
-  phone: { type: String, required: true, trim: true, maxlength: 30 },
+  phone: { type: String, required: false, trim: true, maxlength: 30, default: '' },
   service: { type: String, required: true, trim: true },
   consultationMode: { type: String, required: true, enum: ['Video call', 'In person', 'Phone'] },
   date: { type: Date, required: true },

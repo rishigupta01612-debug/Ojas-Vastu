@@ -9,7 +9,7 @@ export const chatSchema = z.object({
 export const bookingSchema = z.object({
   name: z.string().trim().min(2).max(100),
   email: z.string().trim().email().max(254),
-  phone: z.string().trim().min(8).max(30),
+  phone: z.string().trim().max(30).optional().default(''),
   service: z.string().refine((value) => Object.hasOwn(SERVICES, value), 'Invalid service'),
   mode: z.enum(CONSULTATION_MODES),
   date: z.coerce.date().refine((value) => value >= new Date(new Date().setHours(0, 0, 0, 0)), 'Date cannot be in the past'),

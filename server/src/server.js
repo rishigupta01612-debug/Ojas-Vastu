@@ -6,7 +6,11 @@ import { env, validateProductionConfig } from './config/env.js'
 validateProductionConfig()
 const app = createApp()
 const server = http.createServer(app)
-await connectDatabase()
+try {
+  await connectDatabase()
+} catch (error) {
+  console.error(`Database connection failed: ${error.message}`)
+}
 server.listen(env.port, () => console.log(`Ojas backend listening on http://localhost:${env.port}`))
 
 async function shutdown(signal) {

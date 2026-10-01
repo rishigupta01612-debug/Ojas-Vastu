@@ -1,5 +1,18 @@
 const apiBaseUrl = import.meta.env.VITE_API_URL || ''
 
+const razorpayScriptUrl = 'https://checkout.razorpay.com/v1/checkout.js'
+
+export function loadRazorpay() {
+	if (window.Razorpay) return Promise.resolve(true)
+	return new Promise((resolve, reject) => {
+		const script = document.createElement('script')
+		script.src = razorpayScriptUrl
+		script.onload = () => resolve(true)
+		script.onerror = () => reject(new Error('Razorpay Checkout could not be loaded'))
+		document.body.appendChild(script)
+	})
+}
+
 export async function createPaymentOrder(order) {
 	const response = await fetch(`${apiBaseUrl}/api/payment/create-order`, {
 		method: 'POST',
