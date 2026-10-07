@@ -2,8 +2,9 @@ import { createBooking, getAvailability } from '../services/bookingService.js'
 
 export async function createBookingController(request, response, next) {
   try {
-    const booking = await createBooking(request.validatedBody)
-    return response.status(201).json({ success: true, data: { booking: { id: booking.id, status: booking.bookingStatus, paymentStatus: booking.paymentStatus } } })
+    const result = await createBooking(request.validatedBody)
+    const { booking } = result
+    return response.status(201).json({ success: true, data: { booking: { id: booking.id, status: booking.bookingStatus, paymentStatus: booking.paymentStatus }, confirmationEmailSent: result.confirmationEmailSent } })
   } catch (error) { return next(error) }
 }
 

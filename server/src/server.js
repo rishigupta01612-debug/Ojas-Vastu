@@ -7,9 +7,11 @@ validateProductionConfig()
 const app = createApp()
 const server = http.createServer(app)
 try {
-  await connectDatabase()
+  const connected = await connectDatabase()
+  if (!connected) throw new Error('MONGODB_URI is not configured')
 } catch (error) {
   console.error(`Database connection failed: ${error.message}`)
+  process.exit(1)
 }
 server.listen(env.port, () => console.log(`Ojas backend listening on http://localhost:${env.port}`))
 

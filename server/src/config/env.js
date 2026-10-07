@@ -5,9 +5,12 @@ import dotenv from 'dotenv'
 const serverDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const projectDirectory = path.resolve(serverDirectory, '..')
 
-// Load the project environment first. Blank values in server/.env do not override it.
+const inheritedEnvironmentKeys = new Set(Object.keys(process.env))
 dotenv.config({ path: path.join(projectDirectory, '.env') })
-dotenv.config({ path: path.join(serverDirectory, '.env') })
+const serverEnvironment = dotenv.config({ path: path.join(serverDirectory, '.env') }).parsed || {}
+for (const [name, value] of Object.entries(serverEnvironment)) {
+  if (value.trim() && !inheritedEnvironmentKeys.has(name)) process.env[name] = value
+}
 
 function numberFromEnv(name, fallback) {
   const value = Number(process.env[name] || fallback)

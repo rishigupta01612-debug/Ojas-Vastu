@@ -48,7 +48,7 @@ Run the frontend and backend in separate terminals during development.
 
 ## Environment variables
 
-Copy `server/.env.example` to `server/.env` and configure the services you intend to use. The root `.env.example` contains the frontend API URL.
+Copy `server/.env.example` to `server/.env` and configure the services you intend to use. The root `.env.example` contains the frontend API URL. A non-empty value from `server/.env` overrides the same value in the root `.env`; environment variables supplied by the host override both.
 
 Required for persistent production bookings:
 
@@ -74,13 +74,13 @@ Required for booking confirmation emails:
 - `EMAIL_FROM`
 - `ADMIN_EMAIL` (optional; receives a copy of each booking)
 
-Booking requests are only reported as successful after the customer confirmation email has been sent. Configure the SMTP values in `server/.env` for local development and in the backend hosting provider's environment settings for production. Use the SMTP credentials or app password supplied by your email provider; do not put credentials in frontend variables.
+Bookings are saved to MongoDB before confirmation emails are attempted. An email delivery/configuration problem does not delete a saved booking; the API response and booking form report whether the acknowledgement email was sent. Configure the SMTP values in `server/.env` for local development and in the backend hosting provider's environment settings for production. Use the SMTP credentials or app password supplied by your email provider; do not put credentials in frontend variables.
 
 No secret values are included in the repository. `server/.env` and root `.env` are ignored by Git.
 
 ## Database
 
-MongoDB is accessed through Mongoose. The server starts in development without a configured database so health and validation routes can be tested, but booking persistence and availability return `503` until `MONGODB_URI` is configured and reachable.
+MongoDB is accessed through Mongoose using the `MONGODB_URI` configured for the backend (in `server/.env` for local development). The database name is `ojas_numerology`; submitted consultation bookings are stored in the `bookings` collection. The backend exits with a connection error instead of starting if MongoDB is missing or unreachable. Check `GET /api/health` and confirm its `database` field is `connected` once the backend starts.
 
 Bookings have a unique database index on `dateKey` and `time`, preventing two requests from claiming the same slot concurrently.
 

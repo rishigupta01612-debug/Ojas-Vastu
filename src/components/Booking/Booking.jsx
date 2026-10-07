@@ -30,6 +30,7 @@ function Booking() {
   const [status, setStatus] = useState('idle')
   const [submitError, setSubmitError] = useState('')
   const [bookingId, setBookingId] = useState('')
+  const [confirmationEmailSent, setConfirmationEmailSent] = useState(false)
   const selectedDate = dates[dateIndex]
   const selectedDateKey = dateKeyFromDate(selectedDate)
   const [availability, setAvailability] = useState({ dateKey: '', booked: [], loading: false, error: '' })
@@ -56,9 +57,11 @@ function Booking() {
     if (Object.keys(nextErrors).length) return
     setStatus('loading')
     setSubmitError('')
+    setConfirmationEmailSent(false)
     try {
       const response = await createBooking({ ...values, date: selectedDateKey, slot })
       setBookingId(response.data.booking.id)
+      setConfirmationEmailSent(response.data.confirmationEmailSent)
       setStatus('success')
     } catch (error) {
       setSubmitError(error.message)
@@ -91,7 +94,7 @@ function Booking() {
             {availability.error && availability.dateKey === selectedDateKey && <p className="form-error">Could not load live availability: {availability.error} You can still submit a request; we&apos;ll check the slot before confirming.</p>}
             <div className="slot-grid">{BOOKING_SLOTS.map((time) => { const taken = availability.dateKey === selectedDateKey && availability.booked.some((booking) => booking.time === time); return <button className={`slot${taken ? ' taken' : ''}${slot === time ? ' active' : ''}`} type="button" disabled={taken || availabilityLoading} key={time} onClick={() => setSlot(time)}>{taken ? `${time} · booked` : time}</button> })}</div>
             {errors.date && <p className="form-error">{errors.date}</p>}{errors.slot && <p className="form-error">{errors.slot}</p>}
-            {status === 'success' && <div className="confirm-box show"><h4>Booking request received</h4><p>{values.name.trim()} · {values.service} · {dateLabel} at {slot} · {values.mode}</p><p>A booking acknowledgement has been sent to {values.email}. Complete payment below to confirm your appointment; we&apos;ll email your paid confirmation with a PDF invoice once payment succeeds.</p><PaymentCheckout bookingId={bookingId} customer={values} /></div>}
+            {status === 'success' && <div className="confirm-box show"><h4>Booking request received</h4><p>{values.name.trim()} · {values.service} · {dateLabel} at {slot} · {values.mode}</p><p>{confirmationEmailSent ? `A booking acknowledgement has been sent to ${values.email}.` : 'Your booking was saved, but we could not send an acknowledgement email. Please contact us if you need confirmation.'} Complete payment below to confirm your appointment; we&apos;ll email your paid confirmation with a PDF invoice once payment succeeds.</p><PaymentCheckout bookingId={bookingId} customer={values} /></div>}
           </div>
         </div>
       </div>
