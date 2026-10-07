@@ -61,18 +61,20 @@ Required for AI chat:
 
 Required for Razorpay payments:
 
-- `RAZORPAY_KEY_ID`
-- `RAZORPAY_KEY_SECRET`
+- `RAZORPAY_KEY_ID` (use a Test Mode key for test payments)
+- `RAZORPAY_KEY_SECRET` (matching Test Mode secret)
 - `RAZORPAY_WEBHOOK_SECRET` (for webhooks)
 
-Optional email notifications:
+Required for booking confirmation emails:
 
 - `SMTP_HOST`
 - `SMTP_PORT`
 - `SMTP_USER`
 - `SMTP_PASSWORD`
 - `EMAIL_FROM`
-- `ADMIN_EMAIL`
+- `ADMIN_EMAIL` (optional; receives a copy of each booking)
+
+Booking requests are only reported as successful after the customer confirmation email has been sent. Configure the SMTP values in `server/.env` for local development and in the backend hosting provider's environment settings for production. Use the SMTP credentials or app password supplied by your email provider; do not put credentials in frontend variables.
 
 No secret values are included in the repository. `server/.env` and root `.env` are ignored by Git.
 
@@ -98,7 +100,7 @@ Responses use `{ success: true, data: ... }` for success and `{ success: false, 
 
 The server calculates service pricing from its own service map. The frontend cannot set the amount. A booking must exist before an order can be created. Razorpay payment signatures are verified server-side before the booking is marked paid and confirmed.
 
-The current source UI displays payment options but does not yet open Razorpay Checkout. The backend endpoints are ready for a checkout component to call with a real booking ID and the returned order data.
+The booking flow opens Razorpay Checkout after a booking request has been stored. Use Test Mode API keys and configure the matching Razorpay test webhook secret when testing. The backend verifies checkout signatures and also processes signed `payment.captured` and `order.paid` webhooks so a captured payment can confirm the booking if the browser callback does not complete. After payment succeeds, the customer receives a confirmation email with a PDF payment invoice attached. If email delivery fails, the booking remains paid and a Razorpay webhook retry will retry the email.
 
 ## Security
 
@@ -118,7 +120,7 @@ The test suite covers health, chat validation, booking validation, payment valid
 
 1. Set `NODE_ENV=production` and configure `MONGODB_URI`.
 2. Configure `FRONTEND_URL` to the deployed frontend origin.
-3. Configure Anthropic, Razorpay, and SMTP credentials through the deployment secret manager.
+3. Configure SMTP credentials (required for bookings), plus Anthropic and Razorpay credentials, through the deployment secret manager.
 4. Run `npm run build` for the frontend.
 5. Run `npm start` from `server/` for the API.
 6. Serve the built frontend from the hosting provider or a static web server.

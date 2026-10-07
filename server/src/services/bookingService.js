@@ -1,7 +1,7 @@
 import { Booking } from '../models/Booking.js'
 import { databaseState } from '../config/database.js'
 import { dateKeyFromInput } from '../utils/helpers.js'
-import { sendBookingEmails } from './emailService.js'
+import { requireEmailConfiguration, sendBookingEmails } from './emailService.js'
 
 export function requireDatabase() {
   if (databaseState.status !== 'connected') {
@@ -13,10 +13,16 @@ export function requireDatabase() {
 
 export async function createBooking(data) {
   requireDatabase()
+  requireEmailConfiguration()
   const dateKey = dateKeyFromInput(data.date)
   const booking = await Booking.create({ name: data.name, email: data.email, phone: data.phone, service: data.service, consultationMode: data.mode, date: data.date, dateKey, time: data.slot, notes: data.notes || '' })
   console.log(`Booking created for ${booking.email} on ${booking.dateKey} at ${booking.time}`)
-  await sendBookingEmails(booking)
+  try {
+    await sendBookingEmails(booking)
+  } catch (error) {
+    await Booking.deleteOne({ _id: booking._id })
+    throw error
+  }
   return booking
 }
 

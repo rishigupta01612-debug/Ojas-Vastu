@@ -13,6 +13,11 @@ export const BOOKING_TIMES = ['10:00 AM', '11:30 AM', '1:00 PM', '3:00 PM', '4:3
 export const CONSULTATION_MODES = ['Video call', 'In person', 'Phone']
 
 export function dateKeyFromInput(value) {
+  if (typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    const date = new Date(`${value}T00:00:00.000Z`)
+    if (!Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value) return value
+    return null
+  }
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) return null
   return date.toISOString().slice(0, 10)

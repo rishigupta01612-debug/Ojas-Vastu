@@ -6,18 +6,32 @@ export const chatSchema = z.object({
   system: z.string().trim().max(5000).optional(),
 })
 
+const dateOnly = z.string()
+  .regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must use YYYY-MM-DD format')
+  .refine((value) => {
+    const date = new Date(`${value}T00:00:00.000Z`)
+    return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value
+  }, 'Invalid date')
+
+function localDateKey(date) {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
+}
+
 export const bookingSchema = z.object({
   name: z.string().trim().min(2).max(100),
   email: z.string().trim().email().max(254),
   phone: z.string().trim().max(30).optional().default(''),
   service: z.string().refine((value) => Object.hasOwn(SERVICES, value), 'Invalid service'),
   mode: z.enum(CONSULTATION_MODES),
-  date: z.coerce.date().refine((value) => value >= new Date(new Date().setHours(0, 0, 0, 0)), 'Date cannot be in the past'),
+  date: dateOnly.refine((value) => value >= localDateKey(new Date()), 'Date cannot be in the past'),
   slot: z.string().refine((value) => BOOKING_TIMES.includes(value), 'Invalid time slot'),
   notes: z.string().trim().max(1000).optional(),
 })
 
-export const availabilitySchema = z.object({ date: z.coerce.date().optional() })
+export const availabilitySchema = z.object({ date: dateOnly.optional() })
 
 const objectId = z.string().regex(/^[a-f\d]{24}$/i, 'Invalid booking id')
 export const paymentOrderSchema = z.object({ bookingId: objectId })

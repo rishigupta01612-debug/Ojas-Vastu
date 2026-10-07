@@ -5,6 +5,7 @@ import './Payment.css'
 export function PaymentCheckout({ bookingId, customer, onComplete }) {
   const [status, setStatus] = useState('idle')
   const [error, setError] = useState('')
+  const [confirmationEmailSent, setConfirmationEmailSent] = useState(false)
 
   async function startPayment() {
     setStatus('loading')
@@ -12,6 +13,7 @@ export function PaymentCheckout({ bookingId, customer, onComplete }) {
     try {
       const order = await createPaymentOrder({ bookingId })
       await loadRazorpay()
+      let checkoutCompleted = false
       const checkout = new window.Razorpay({
         key: order.keyId,
         amount: order.amount,
@@ -22,16 +24,19 @@ export function PaymentCheckout({ bookingId, customer, onComplete }) {
         prefill: { name: customer.name, email: customer.email, contact: customer.phone },
         theme: { color: '#C9A227' },
         handler: async (response) => {
+          checkoutCompleted = true
+          setStatus('verifying')
           try {
-            await verifyPayment({ bookingId, razorpayOrderId: response.razorpay_order_id, razorpayPaymentId: response.razorpay_payment_id, razorpaySignature: response.razorpay_signature })
+            const result = await verifyPayment({ bookingId, razorpayOrderId: response.razorpay_order_id, razorpayPaymentId: response.razorpay_payment_id, razorpaySignature: response.razorpay_signature })
+            setConfirmationEmailSent(result.booking.confirmationEmailSent)
             setStatus('paid')
             onComplete?.()
           } catch (verificationError) {
-            setStatus('error')
-            setError(verificationError.message)
+            setStatus('verification-error')
+            setError(verificationError.message || 'Payment was completed but could not be confirmed right away.')
           }
         },
-        modal: { ondismiss: () => setStatus('idle') },
+        modal: { ondismiss: () => { if (!checkoutCompleted) setStatus('idle') } },
       })
       checkout.open()
     } catch (paymentError) {
@@ -40,7 +45,7 @@ export function PaymentCheckout({ bookingId, customer, onComplete }) {
     }
   }
 
-  return <div className="payment-action"><button className="btn btn-primary" type="button" onClick={startPayment} disabled={status === 'loading' || status === 'paid'}>{status === 'loading' ? 'Opening secure checkout…' : status === 'paid' ? 'Payment confirmed' : 'Pay securely with Razorpay'}</button>{status === 'error' && <p className="form-error">{error || 'Payment could not be started. Please try again.'}</p>}</div>
+  return <div className="payment-action"><button className="btn btn-primary" type="button" onClick={startPayment} disabled={['loading', 'verifying', 'paid', 'verification-error'].includes(status)}>{status === 'loading' ? 'Opening secure checkout…' : status === 'verifying' ? 'Verifying payment…' : status === 'paid' ? 'Payment confirmed' : status === 'verification-error' ? 'Payment verification pending' : 'Pay securely with Razorpay'}</button>{status === 'paid' && <p role="status">{confirmationEmailSent ? `Payment successful. Your confirmation and PDF invoice have been sent to ${customer.email}.` : `Payment successful. Your booking is confirmed; invoice email delivery is pending and will be retried. Please do not pay again.`}</p>}{status === 'verification-error' && <p className="form-error" role="alert">Razorpay completed checkout, but we could not verify it immediately. Please do not pay again. We will reconcile the payment; contact us if you do not receive your invoice email. {error}</p>}{status === 'error' && <p className="form-error">{error || 'Payment could not be started. Please try again.'}</p>}</div>
 }
 
 function Payment() {
