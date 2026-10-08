@@ -13,10 +13,12 @@ A React/Vite frontend and Node.js/Express backend for numerology and Vastu consu
 
 ```bash
 npm install
-npm run dev
+npm run dev:all
 ```
 
-The frontend runs at `http://localhost:5173` and uses `VITE_API_URL` for backend requests.
+This starts the frontend at `http://localhost:5173` and the backend at `http://localhost:5000` in the same terminal. Press `Ctrl+C` to stop both. The backend requires a working MongoDB connection configured through `server/.env`.
+
+To run only the frontend, use `npm run dev`. To run services in separate terminals, use the frontend and backend commands below.
 
 Useful commands:
 
