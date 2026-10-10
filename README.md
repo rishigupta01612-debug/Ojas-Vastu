@@ -16,7 +16,7 @@ npm install
 npm run dev:all
 ```
 
-This starts the frontend at `http://localhost:5173` and the backend at `http://localhost:5000` in the same terminal. Press `Ctrl+C` to stop both. The backend requires a working MongoDB connection configured through `server/.env`.
+This starts the frontend at `http://127.0.0.1:5500/my-react-app/Pasted%20code.html` and the backend at `http://localhost:5000` in the same terminal. Press `Ctrl+C` to stop both. The backend requires a working MongoDB connection configured through `server/.env`.
 
 To run only the frontend, use `npm run dev`. To run services in separate terminals, use the frontend and backend commands below.
 
@@ -127,3 +127,4 @@ The test suite covers health, chat validation, booking validation, payment valid
 5. Run `npm start` from `server/` for the API.
 6. Serve the built frontend from the hosting provider or a static web server.
 7. Configure the Razorpay webhook URL as `/api/payment/webhook` and its signing secret.
+

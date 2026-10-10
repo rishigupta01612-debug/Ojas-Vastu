@@ -15,7 +15,13 @@ export async function askAnthropic(messages, system = DEFAULT_SYSTEM) {
       method: 'POST',
       signal: controller.signal,
       headers: { 'content-type': 'application/json', 'x-api-key': env.anthropicApiKey, 'anthropic-version': '2023-06-01' },
-      body: JSON.stringify({ model: env.anthropicModel, max_tokens: 600, system, messages }),
+      body: JSON.stringify({
+        model: env.anthropicModel,
+        max_tokens: 600,
+        system,
+        messages,
+        tools: [{ type: 'web_search_20250305', name: 'web_search', max_uses: 2 }],
+      }),
     })
     if (!response.ok) {
       const error = new Error('AI provider request failed')

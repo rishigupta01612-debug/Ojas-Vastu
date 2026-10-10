@@ -6,6 +6,7 @@ import { databaseState } from '../src/config/database.js'
 import { env } from '../src/config/env.js'
 import { bookingSchema } from '../src/middleware/validation.js'
 import { Booking } from '../src/models/Booking.js'
+import { askAnthropic } from '../src/services/anthropicService.js'
 import { createBooking } from '../src/services/bookingService.js'
 import { createInvoicePdf } from '../src/services/invoiceService.js'
 import { dateKeyFromInput, razorpaySignature, timingSafeSignature } from '../src/utils/helpers.js'
@@ -23,6 +24,25 @@ test('POST /api/chat rejects an invalid conversation', async () => {
   const response = await request(app).post('/api/chat').send({ messages: [] })
   assert.equal(response.status, 400)
   assert.equal(response.body.success, false)
+})
+
+test('Anthropic chat enables server-side web search', async () => {
+  const previousApiKey = env.anthropicApiKey
+  let requestBody
+  env.anthropicApiKey = 'test-api-key'
+  mock.method(globalThis, 'fetch', async (_url, options) => {
+    requestBody = JSON.parse(options.body)
+    return { ok: true, json: async () => ({ content: [{ text: 'Here is a current answer.' }] }) }
+  })
+
+  try {
+    const reply = await askAnthropic([{ role: 'user', content: 'What is current today?' }], 'Use web search for current information.')
+    assert.equal(reply, 'Here is a current answer.')
+    assert.deepEqual(requestBody.tools, [{ type: 'web_search_20250305', name: 'web_search', max_uses: 2 }])
+  } finally {
+    mock.restoreAll()
+    env.anthropicApiKey = previousApiKey
+  }
 })
 
 test('POST /api/bookings validates all required fields', async () => {
