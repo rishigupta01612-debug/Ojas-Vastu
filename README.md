@@ -120,11 +120,19 @@ The test suite covers health, chat validation, booking validation, payment valid
 
 ## Production deployment
 
-1. Set `NODE_ENV=production` and configure `MONGODB_URI`.
-2. Configure `FRONTEND_URL` to the deployed frontend origin.
-3. Configure SMTP credentials (required for bookings), plus Anthropic and Razorpay credentials, through the deployment secret manager.
-4. Run `npm run build` for the frontend.
-5. Run `npm start` from `server/` for the API.
-6. Serve the built frontend from the hosting provider or a static web server.
-7. Configure the Razorpay webhook URL as `/api/payment/webhook` and its signing secret.
+### Deploying the full app to Vercel
 
+The repository is configured for Vercel's Vite frontend build and an Express API function. Import the GitHub repository into Vercel with the repository root as the project root; `vercel.json` installs both frontend and backend dependencies and builds the frontend.
+
+Add the following environment variables in the Vercel project settings. Never commit `.env` files or paste secret values into source code.
+
+- `MONGODB_URI` — required for persistent production bookings. Allow Vercel's outbound connections in the MongoDB provider's network access settings.
+- `ANTHROPIC_API_KEY` — required for AI chat.
+- `RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET`, and `RAZORPAY_WEBHOOK_SECRET` — required for payments. Use matching Test Mode values until ready for production.
+- `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, and `EMAIL_FROM` — required for booking and payment confirmation emails.
+- `ADMIN_EMAIL` — optional booking notification recipient.
+- `FRONTEND_URL` — optional for same-origin Vercel requests; set this to the deployed site origin if cross-origin API requests are needed.
+
+The API function connects to MongoDB on demand and reuses the connection in a warm function instance. The in-memory MongoDB fallback is for local development only and must not be used for production data.
+
+After deployment, verify `GET /api/health` reports `"database":"connected"`. Configure the Razorpay webhook URL as `https://<your-deployed-domain>/api/payment/webhook`.
